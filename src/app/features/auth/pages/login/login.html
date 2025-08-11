@@ -1,0 +1,37 @@
+<div class="login-container">
+  <mat-card class="login-card">
+    <mat-card-header>
+      <mat-card-title>Smart Tech - Autenticação</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      @if (errorMessage) {
+        <div class="error-message">{{ errorMessage }}</div>
+      }
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <mat-form-field class="full-width">
+          <mat-label>E-mail</mat-label>
+          <input matInput formControlName="email" type="email">
+          @if (loginForm.get('email')?.invalid && loginForm.get('email')?.touched) {
+            <mat-error>
+              Por favor, insira um e-mail válido.
+            </mat-error>
+          }
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+          <mat-label>Senha</mat-label>
+          <input matInput formControlName="password" type="password">
+          @if (loginForm.get('password')?.invalid && loginForm.get('password')?.touched) {
+            <mat-error>
+              A senha deve ter no mínimo 8 caracteres.
+            </mat-error>
+          }
+        </mat-form-field>
+        
+        <div class="button-container">
+          <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid">Entrar</button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

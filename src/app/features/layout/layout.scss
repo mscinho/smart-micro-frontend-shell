@@ -1,0 +1,11 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.sidenav-container {
+  height: calc(100vh - 64px); // Ajusta a altura para a barra de ferramentas
+}
+
+.sidenav {
+  width: 250px;
+}
