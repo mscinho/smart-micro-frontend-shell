@@ -2,41 +2,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
-}
-
-.login-card {
-  z-index: 2;
-  background-color: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(10px);
-  max-width: 400px;
-  width: 100%;
-  padding: 20px;
-}
-
-.full-width {
-  width: 100%;
-}
-
-.button-container {
-  display: flex;
-  justify-content: flex-end;
-  margin-top: 20px;
-}
-
-.error-message {
-  color: #f44336;
-  background-color: #ffebee;
-  padding: 1rem;
-  border-radius: 4px;
-  margin-bottom: 1rem;
-}
-
-.login-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   height: 100vh;
+
   background-image: url('/assets/images/bg-login.jpg');
   background-size: cover;
   background-position: center;
@@ -53,4 +20,134 @@
   height: 100%;
   background-color: rgba(0, 0, 0, 0.4);
   z-index: 1;
+}
+
+.login-card {
+  z-index: 2;
+  background-color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  max-width: 400px;
+  width: 100%;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.full-width {
+  width: 100%;
+}
+
+.button-container {
+  display: flex;
+  margin-top: 20px;
+}
+
+.button-container button {
+  width: 100%;
+}
+
+.error-message {
+  color: #f44336;
+  background-color: #ffebee;
+  padding: 1rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.login-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+.social-login-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-top: 15px;
+  padding: 0 16px;
+}
+
+.google-button {
+  width: 100%;
+  background-color: #ffffff !important;
+  color: #000000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-weight: 500;
+}
+
+.google-icon {
+  height: 18px;
+  margin-right: 10px;
+}
+
+.register-action {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+  padding: 0 16px;
+  font-size: 14px;
+}
+
+.register-action p {
+  color: #757575;
+}
+
+.register-action a {
+  color: #3f51b5;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.forgot-password-link {
+  text-align: right;
+  font-size: 14px;
+}
+
+.forgot-password-link a {
+  color: #757575;
+  text-decoration: none;
+}
+
+.forgot-password-link a:hover {
+  text-decoration: underline;
+}
+
+mat-card-title {
+  font-size: 16px;
+  color: #757575;
+  margin-bottom: 20px;
+}
+
+.logo-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 15px;
+  padding-bottom: 5px;
+}
+
+.smart-tech-logo {
+  font-size: 32px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  font-family: 'Poppins', Roboto, "Helvetica Neue", sans-serif;
+}
+
+.smart-logo {
+  color: #3f51b5; // Cor azul para o "Smart"
+  letter-spacing: -1px;
+}
+
+.tech-logo {
+  color: #333; // Cor cinza escuro para o "Tech"
+  letter-spacing: -1px;
 }

@@ -1,7 +1,10 @@
 <div class="login-container">
   <mat-card class="login-card">
-    <mat-card-header>
-      <mat-card-title>Smart Tech - Autenticação</mat-card-title>
+    <mat-card-header class="logo-header">
+      <div class="smart-tech-logo">
+        <span class="smart-logo">Smart</span><span class="tech-logo">Tech</span>
+      </div>
+      <mat-card-title>Autenticação</mat-card-title>
     </mat-card-header>
     <mat-card-content>
       @if (errorMessage) {
@@ -11,6 +14,7 @@
         <mat-form-field class="full-width">
           <mat-label>E-mail</mat-label>
           <input matInput formControlName="email" type="email">
+          <mat-icon matPrefix>person</mat-icon>
           @if (loginForm.get('email')?.invalid && loginForm.get('email')?.touched) {
             <mat-error>
               Por favor, insira um e-mail válido.
@@ -20,7 +24,11 @@
 
         <mat-form-field class="full-width">
           <mat-label>Senha</mat-label>
-          <input matInput formControlName="password" type="password">
+          <input matInput formControlName="password" [type]="hidePassword ? 'password' : 'text'">
+          <mat-icon matPrefix>lock</mat-icon>
+          <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" type="button">
+            <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
           @if (loginForm.get('password')?.invalid && loginForm.get('password')?.touched) {
             <mat-error>
               A senha deve ter no mínimo 8 caracteres.
@@ -28,10 +36,25 @@
           }
         </mat-form-field>
         
+        <div class="forgot-password-link">
+          <a routerLink="/auth/forgot-password">Esqueceu a senha?</a>
+        </div>
+        
         <div class="button-container">
           <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid">Entrar</button>
         </div>
       </form>
     </mat-card-content>
+
+    <mat-card-actions class="social-login-actions">
+        <button mat-raised-button class="google-button" (click)="loginWithGoogle()">
+            <img src="/assets/images/google.png" alt="Google Icon" class="google-icon">
+            Entrar com Google
+        </button>
+    </mat-card-actions>
+    
+    <mat-card-actions class="register-action">
+        <p>Não tem uma conta? <a routerLink="/auth/register">Registre-se aqui</a></p>
+    </mat-card-actions>
   </mat-card>
 </div>

@@ -1,5 +1,6 @@
 // Importa o tema do Material
 @import '@angular/material/prebuilt-themes/indigo-pink.css';
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap');
 
 /* Outros estilos globais podem vir aqui */
 html, body {
@@ -9,4 +10,5 @@ html, body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+  // font-family: 'Poppins', Roboto, "Helvetica Neue", sans-serif;
 }
