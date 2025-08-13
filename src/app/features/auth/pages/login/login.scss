@@ -4,7 +4,7 @@
   align-items: center;
   height: 100vh;
 
-  background-image: url('/assets/images/bg-login.jpg');
+  background-image: url('/assets/images/bg-login-v5.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -20,6 +20,12 @@
   height: 100%;
   background-color: rgba(0, 0, 0, 0.4);
   z-index: 1;
+}
+
+mat-card-title {
+  font-size: 16px;
+  color: #757575;
+  margin-bottom: 20px;
 }
 
 .login-card {
@@ -119,12 +125,6 @@
   text-decoration: underline;
 }
 
-mat-card-title {
-  font-size: 16px;
-  color: #757575;
-  margin-bottom: 20px;
-}
-
 .logo-header {
   display: flex;
   flex-direction: column;
@@ -148,6 +148,6 @@ mat-card-title {
 }
 
 .tech-logo {
-  color: #333; // Cor cinza escuro para o "Tech"
+  color: #666; // Cor cinza escuro para o "Tech"
   letter-spacing: -1px;
 }

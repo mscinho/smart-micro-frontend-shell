@@ -1,13 +1,20 @@
 <div class="register-container">
   <mat-card class="register-card">
-    <mat-card-header>
+    <mat-card-header class="logo-header">
+      <div class="smart-tech-logo">
+        <span class="smart-logo">Smart</span><span class="tech-logo">Tech</span>
+      </div>
       <mat-card-title>Registro</mat-card-title>
     </mat-card-header>
     <mat-card-content>
+      @if (errorMessage) {
+        <div class="error-message">{{ errorMessage }}</div>
+      }
       <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
         <mat-form-field class="full-width">
           <mat-label>E-mail</mat-label>
           <input matInput formControlName="email" type="email">
+          <mat-icon matPrefix>person</mat-icon>
           @if (registerForm.get('email')?.invalid && registerForm.get('email')?.touched) {
             <mat-error>
               Por favor, insira um e-mail válido.
@@ -17,7 +24,11 @@
 
         <mat-form-field class="full-width">
           <mat-label>Senha</mat-label>
-          <input matInput formControlName="password" type="password">
+          <input matInput formControlName="password" [type]="hidePassword ? 'password' : 'text'">
+          <mat-icon matPrefix>lock</mat-icon>
+          <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" type="button">
+            <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
           @if (registerForm.get('password')?.invalid && registerForm.get('password')?.touched) {
             <mat-error>
               A senha deve ter no mínimo 8 caracteres.
@@ -27,10 +38,14 @@
 
         <mat-form-field class="full-width">
           <mat-label>Confirmar Senha</mat-label>
-          <input matInput formControlName="confirmPassword" type="password">
+          <input matInput formControlName="confirmPassword" [type]="hidePassword ? 'password' : 'text'">
+          <mat-icon matPrefix>lock</mat-icon>
+          <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" type="button">
+            <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
           @if (registerForm.get('confirmPassword')?.invalid && registerForm.get('confirmPassword')?.touched) {
             <mat-error>
-              Por favor, confirme sua senha.
+              As senhas não conferem.
             </mat-error>
           }
         </mat-form-field>
@@ -40,5 +55,9 @@
         </div>
       </form>
     </mat-card-content>
+    
+    <mat-card-actions class="social-login-actions">
+        <p>Já tem uma conta? <a routerLink="/auth/login">Faça o login aqui</a></p>
+    </mat-card-actions>
   </mat-card>
 </div>
